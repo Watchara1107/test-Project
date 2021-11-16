@@ -81,7 +81,8 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Laravel <br>
+                    {{date('dd/m/Y H:i:s')}}
                 </div>
 
                 <div class="links">
