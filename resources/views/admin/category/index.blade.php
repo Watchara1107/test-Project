@@ -56,12 +56,14 @@
             Swal.fire({
                 position: 'top-end',
                 icon: 'error',
-                title: 'ไม่สามารถลบประเภทสินค้าได้',
+                title: 'ไม่สามารถลบประเภทสินค้าได้เนื่องจากมีสินค้าอยู่',
                 showConfirmButton: false,
-                timer: 5500
+                timer: 2500
             })
         </script>
         @endif
+
+
 
 
         <div class="card card-primary">

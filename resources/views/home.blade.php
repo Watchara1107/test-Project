@@ -19,7 +19,10 @@
                     <h5><p><strong>Phone : </strong>{{Auth()->user()->phone}}</p></h5>
                     <h5><p><strong>Address : </strong>{{Auth()->user()->address}}</p></h5>
                     <p>
+                        @if (Auth::user()->checkIsAdmin())
                         <a href="{{route('index')}}" class="btn btn-primary">Product Management</a>
+                        @endif
+
                         <a href="" class="btn btn-success">Home</a>
                     </p>
 
