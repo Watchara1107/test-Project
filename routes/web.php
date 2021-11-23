@@ -18,6 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Auth::routes();
+
+Route::middleware(['auth','verifyisadmin'])->group(function(){
 //route admin
 Route::get('/admin/index','Admin\AdminController@index')->name('index');
 
@@ -38,6 +41,9 @@ Route::get('/admin/product/delete/{id}','Admin\ProductController@delete');
 //route user
 Route::get('/admin/user/index','Admin\UserController@index')->name('user');
 
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+});
+
+
+
