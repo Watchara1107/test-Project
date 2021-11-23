@@ -22,7 +22,6 @@
                         @if (Auth::user()->checkIsAdmin())
                         <a href="{{route('index')}}" class="btn btn-primary">Product Management</a>
                         @endif
-
                         <a href="" class="btn btn-success">Home</a>
                     </p>
 
