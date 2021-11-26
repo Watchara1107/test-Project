@@ -22,28 +22,32 @@ Auth::routes();
 
 Route::middleware(['auth','verifyisadmin'])->group(function(){
 //route admin
-Route::get('/admin/index','Admin\AdminController@index')->name('index');
+    Route::get('/admin/index','Admin\AdminController@index')->name('index');
 
-//route category
-Route::get('/admin/category/index','Admin\CategoryController@index')->name('category');
-Route::post('/admin/category/create','Admin\CategoryController@create')->name('create');
-Route::get('/admin/category/Edit/{id}','Admin\CategoryController@edit');
-Route::post('/admin/category/Update/{id}','Admin\CategoryController@update');
-Route::get('/admin/category/Delete/{id}','Admin\CategoryController@delete');
+    //route category
+    Route::get('/admin/category/index','Admin\CategoryController@index')->name('category');
+    Route::post('/admin/category/create','Admin\CategoryController@create')->name('create');
+    Route::get('/admin/category/Edit/{id}','Admin\CategoryController@edit');
+    Route::post('/admin/category/Update/{id}','Admin\CategoryController@update');
+    Route::get('/admin/category/Delete/{id}','Admin\CategoryController@delete');
 
-//route product
-Route::get('/admin/product/index','Admin\ProductController@index')->name('product');
-Route::post('/admin/product/create','Admin\ProductController@create')->name('product.c');
-Route::get('/admin/product/edit/{id}','Admin\ProductController@edit');
-Route::post('/admin/product/update/{id}','Admin\ProductController@update');
-Route::get('/admin/product/delete/{id}','Admin\ProductController@delete');
+    //route product
+    Route::get('/admin/product/index','Admin\ProductController@index')->name('product');
+    Route::post('/admin/product/create','Admin\ProductController@create')->name('product.c');
+    Route::get('/admin/product/edit/{id}','Admin\ProductController@edit');
+    Route::post('/admin/product/update/{id}','Admin\ProductController@update');
+    Route::get('/admin/product/delete/{id}','Admin\ProductController@delete');
 
-//route user
-Route::get('/admin/user/index','Admin\UserController@index')->name('user');
+    //route user
+    Route::get('/admin/user/index','Admin\UserController@index')->name('user');
 
 
-Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
+
 });
+
+
+
 
 
 
