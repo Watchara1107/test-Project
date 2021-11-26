@@ -40,6 +40,9 @@ Route::middleware(['auth','verifyisadmin'])->group(function(){
 
     //route user
     Route::get('/admin/user/index','Admin\UserController@index')->name('user');
+    Route::get('/admin/user/edit/{id}','Admin\UserController@edit');
+    Route::post('/admin/user/update/{id}','Admin\UserController@update');
+    Route::get('/admin/user/delete/{id}','Admin\UserController@delete');
 
 
     Route::get('/home', 'HomeController@index')->name('home');
