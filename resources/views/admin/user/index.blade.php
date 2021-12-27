@@ -21,9 +21,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach ($users as $user)
+                        @foreach ($users as $user)
                         <tr>
-
                             <td>{{$user->id}}</td>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
@@ -31,12 +30,14 @@
                             <td>{{$user->phone}}</td>
                             <td>
                                 <a href="{{url('/admin/user/edit/'.$user->id)}}" class="btn btn-success">Edit</a>
+
                                 <a href="{{url('/admin/user/delete/'.$user->id)}}" class="btn btn-danger">Delete</a>
+
+
                             </td>
-
-
                         </tr>
                         @endforeach
+
                         </tfoot>
                 </table>
             </div>

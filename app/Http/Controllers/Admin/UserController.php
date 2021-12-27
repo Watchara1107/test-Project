@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public function index(){
-        $users = User::all();
-        return view('admin.user.index',compact('users'));
+            $users = User::all();
+            return view('admin.user.index',compact('users'));
+
     }
 
     public function edit($id){
@@ -18,19 +20,22 @@ class UserController extends Controller
         return view('admin.user.edit',compact('users'));
     }
 
-    public function update(Request $request, $id){
-        $user = User::find($id);
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->address = $request->address;
-        $user->phone = $request->phone;
-        $user->save();
+    public function update(Request $request,$id){
+        $users = User::find($id);
+        $users->name = $request->name;
+        $users->email = $request->email;
+        $users->address = $request->address;
+        $users->phone = $request->phone;
+        $users->update();
         return redirect()->route('user');
     }
 
     public function delete($id){
-        $user = User::find($id);
-        $user->delete();
+        $users = User::find($id);
+        $users->delete();
         return redirect()->route('user');
     }
+
+
+
 }

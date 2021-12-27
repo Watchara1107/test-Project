@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Product;
+use App\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +17,17 @@ use App\Http\Controllers\Admin\CategoryController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome')
+    ->with('product',Product::paginate(6))
+    ->with('category',Category::all());
 });
+//ค้นหาข้อมูลแบบเลือกประเภทสินค้า
+Route::get('/product/category/{id}','Admin\ProductController@findCategory');
 
 Auth::routes();
 
 Route::middleware(['auth','verifyisadmin'])->group(function(){
-//route admin
+    //route admin
     Route::get('/admin/index','Admin\AdminController@index')->name('index');
 
     //route category
@@ -44,10 +50,11 @@ Route::middleware(['auth','verifyisadmin'])->group(function(){
     Route::post('/admin/user/update/{id}','Admin\UserController@update');
     Route::get('/admin/user/delete/{id}','Admin\UserController@delete');
 
-
     Route::get('/home', 'HomeController@index')->name('home');
-
 });
+
+
+
 
 
 
