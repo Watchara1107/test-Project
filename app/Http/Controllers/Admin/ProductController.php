@@ -62,7 +62,7 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->route('index');
+        return redirect()->route('index')->with('success','บันทึกข้อมูลเรียบร้อย');
     }
 
     public function edit($id)
@@ -116,7 +116,7 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->route('index');
+        return redirect()->route('index')->with('edit','แก้ไขข้อมูลเรียบร้อย');
     }
 
     public function delete($id){
@@ -125,15 +125,15 @@ class ProductController extends Controller
             File::delete(public_path().'/admin/images/'.$delete->image);
         }
         $delete->delete();
-        return redirect()->route('index');
+        return redirect()->route('index')->with('del','ลบข้อมูลเรียบร้อย');
     }
 
     public function findCategory($category_id){
         $category = Category::find($category_id);
-        return view('admin.product.findProduct')
+        return view('admin.product.findproduct')
         ->with('category',Category::all()->sortBy('name'))
-        ->with('product',$category->product()->paginate(3));
-
+        ->with('product',$category->product()->paginate(6));
     }
+
 
 }

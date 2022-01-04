@@ -21,8 +21,15 @@ Route::get('/', function () {
     ->with('product',Product::paginate(6))
     ->with('category',Category::all());
 });
+
 //ค้นหาข้อมูลแบบเลือกประเภทสินค้า
 Route::get('/product/category/{id}','Admin\ProductController@findCategory');
+
+//ค้นหาข้อมูล
+Route::get('/product/search','ProductController@searchProduct');
+
+
+
 
 Auth::routes();
 

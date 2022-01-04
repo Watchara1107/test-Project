@@ -10,7 +10,7 @@
                 icon: 'success',
                 title: 'บันทึกข้อมูลเรียบร้อย',
                 showConfirmButton: false,
-                timer: 5500
+                timer: 2500
             })
         </script>
         @endif
@@ -22,7 +22,7 @@
                 icon: 'success',
                 title: 'แก้ไขข้อมูลเรียบร้อย',
                 showConfirmButton: false,
-                timer: 5500
+                timer: 2500
             })
         </script>
         @endif
@@ -34,7 +34,7 @@
                 icon: 'success',
                 title: 'ลบข้อมูลเรียบร้อย',
                 showConfirmButton: false,
-                timer: 5500
+                timer: 2500
             })
         </script>
         @endif
@@ -46,7 +46,7 @@
                 icon: 'success',
                 title: 'ต้องมีประเภทสินค้าอย่างน้อย 1 รายการ',
                 showConfirmButton: false,
-                timer: 5500
+                timer: 2500
             })
         </script>
         @endif
@@ -146,5 +146,6 @@
 
 
     </div>
+
 
     @endsection

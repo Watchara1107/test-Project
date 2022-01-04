@@ -1,8 +1,41 @@
  @extends('layouts.admin.admin')
  @section('conten')
-
+ <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
  <div class="row">
      <div class="col-12">
+     @if (session('success'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'บันทึกข้อมูลเรียบร้อย',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        </script>
+        @endif
+        @if (session('edit'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'แก้ไขข้อมูลเรียบร้อย',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        </script>
+        @endif
+        @if (session('del'))
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'ลบข้อมูลเรียบร้อย',
+                showConfirmButton: false,
+                timer: 2500
+            })
+        </script>
+        @endif
          <div class="card">
              <div class="card-header">
                  <h3 class="card-title">Products</h3>

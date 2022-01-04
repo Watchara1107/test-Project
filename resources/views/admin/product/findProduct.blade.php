@@ -40,16 +40,21 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="{{asset('font_end/images/home/logo.png')}}" alt="" /></a>
+                            <a href="{{url('/')}}"><img src="{{asset('font_end/images/home/logo.png')}}" alt="" /></a>
                         </div>
                     </div>
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
-                                <li><a href="checkout.html"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                            @if (Auth::check())
+                                <li><a href="{{route('home')}}"><i class="fa fa-user"></i> Account</a></li>
+                                <li><a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"><i class="fa fa-sign-out"></i> Logout</a></li>
+
+                                @else
                                 <li><a href="{{route('login')}}"><i class="fa fa-lock"></i> Login</a></li>
                                 <li><a href="{{route('register')}}"><i class="fa fa-lock"></i> Register</a></li>
+                                @endif
                             </ul>
                         </div>
                     </div>
@@ -171,9 +176,8 @@
                                 </div>
                             </div>
                             @endforeach
-
-
                         </div>
+
                         <!--/category-products-->
 
                         <div class="price-range">
@@ -189,6 +193,7 @@
                 </div>
 
                 <div class="col-sm-9 padding-right">
+
                     <div class="features_items">
                         <!--features_items-->
                         <h2 class="title text-center">Features Items</h2>
@@ -210,19 +215,17 @@
                             </div>
                         </div>
                         @endforeach
+
                     </div>
                     <!--features_items-->
                     <div class="text-right">
-                    {{$product->links()}}
+                        {{$product->links()}}
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <footer id="footer">
-
-
-
         <div class="footer-bottom">
             <div class="container">
                 <div class="row">

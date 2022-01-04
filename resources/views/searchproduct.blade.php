@@ -224,7 +224,7 @@
                     </div>
                     <!--features_items-->
                     <div class="text-right">
-                        {{$product->links()}}
+                        {{$product->appends(['search'=>request()->query('search')])->links()}}
                     </div>
                 </div>
             </div>
