@@ -25,8 +25,11 @@ Route::get('/', function () {
 //ค้นหาข้อมูลแบบเลือกประเภทสินค้า
 Route::get('/product/category/{id}','Admin\ProductController@findCategory');
 
-//ค้นหาข้อมูล
+//ค้นหาข้อมูลด้วยชื่อสินค้า
 Route::get('/product/search','ProductController@searchProduct');
+
+//ค้นหาข้อมูลด้วยราคา
+Route::get('/product/pricrenge','ProductController@searchproductprice');
 
 
 

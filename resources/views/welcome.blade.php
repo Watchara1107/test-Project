@@ -189,8 +189,11 @@
                             <!--price-range-->
                             <h2>Price Range</h2>
                             <div class="well text-center">
-                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="600" data-slider-step="5" data-slider-value="[250,450]" id="sl2"><br />
-                                <b class="pull-left">$ 0</b> <b class="pull-right">$ 600</b>
+                                <form action="{{url('/product/pricrenge')}}" method="get">
+                                <input type="text" class="span2" value="" data-slider-min="0" data-slider-max="50000" data-slider-step="5" data-slider-value="[1000,30000]" id="sl2" name="price"><br />
+                                <b class="pull-left">฿ 0</b> <b class="pull-right">฿ 50,000</b>
+                                <input type="submit"  value="ค้นหา" class="btn btn-primary">
+                                </form>
                             </div>
                         </div>
                         <!--/price-range-->
@@ -224,7 +227,7 @@
                     </div>
                     <!--features_items-->
                     <div class="text-right">
-                        {{$product->links()}}
+                    {{$product->appends(['price'=>request()->query('price')])->links()}}
                     </div>
                 </div>
             </div>
